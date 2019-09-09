@@ -1,0 +1,87 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    font-family:Arial, Helvetica, Times;
+}
+
+#wrap{
+    min-height: 98%;
+}
+
+#content{
+    position: absolute;
+    margin-top:25px;
+    left: 50%;
+    transform: translate(-50%, 0);
+	padding-bottom: 18px;  /* must be same height as the footer */
+}
+
+#footer{
+    position: relative;
+	margin-top: -18px; /* negative value of footer height */
+	height: 18px;
+	clear:both;
+}
+
+ul{
+    border-radius: 12px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #77875A;
+}
+
+li{
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #B7D189;
+}
+
+.username{
+    background-color: #B7D189;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+input[type=text]{
+	width: 100%;
+    box-sizing: border-box;
+    webkit-box-sizing:border-box;
+    moz-box-sizing: border-box;
+}
+
+input[type=submit]:active {
+	position:relative;
+	top:1px;
+}
+
+table{
+	border: 1px black solid;
+	width: 100%;
+}
+
+td,th{
+    padding:10px;
+}
