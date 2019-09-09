@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPB NPD - Log In</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/main.css">
+</head>
+
+<body>
+
+    <div id="wrap">
+        <header>
+             <div id="header">
+                <center>
+                    <img src="/CSS/Spectrum-Brands-Logo.png" alt="SPB logo">
+                </center>
+
+                <ul>
+                    <li><a href="/">Log In</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div id="content">
+            {% if badCombo == 1 %}
+            <center>
+                <p style="color:red"><b>Incorrect Username or Password</b></p>
+            </center>
+            {% endif %}
+
+            <form method="post" action="/login">
+                <table>
+                    <tr>
+                        <td>Username</td>
+                        <td>
+                            <input type="text" name="username" required="true" autofocus>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Password</td>
+                        <td>
+                            <input type="password" name="password" required="true">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                <input type="submit" value="Log In">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+         <div id="footer">
+             <ul style="color:white">
+                 <center>
+                     <small>
+                         &copy Copyright {{curYear}} Spectrum Brands, Inc, Middleton, WI
+                     </small>
+                 </center>
+            </ul>
+        </div>
+    </footer>
+</body>

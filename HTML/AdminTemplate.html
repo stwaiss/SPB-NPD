@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CDO Tasker - Admin</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/main.css">
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+
+    <div id="wrap">
+        <header>
+             <div id="header">
+                <center>
+                    <img src="/CSS/Spectrum-Brands-Logo.png" alt="SPB logo">
+                </center>
+
+                <ul>
+                    <li class="username">{{username}}</a></li>
+                    <li><a href="/changePassword">Change My Password</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

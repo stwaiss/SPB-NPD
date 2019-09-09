@@ -32,7 +32,7 @@ ul{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #77875A;
+    background-color: #008AE6;
 }
 
 li{
@@ -48,11 +48,11 @@ li a {
 }
 
 li a:hover {
-    background-color: #B7D189;
+    background-color: #80CCFF;
 }
 
 .username{
-    background-color: #B7D189;
+    background-color: #80CCFF;
     list-style-type: none;
     margin: 0;
     padding: 0;
