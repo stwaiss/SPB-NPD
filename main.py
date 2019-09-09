@@ -12,13 +12,11 @@ import webapp2
 import jinja2
 import os
 import datetime
-import csv
 from google.appengine.ext import ndb
 from Employee import Employee
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
-
 
 
 class MainHandler(webapp2.RequestHandler):
