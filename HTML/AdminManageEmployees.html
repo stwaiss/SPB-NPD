@@ -1,0 +1,75 @@
+{% extends "/HTML/AdminTemplate.html" %}
+
+{% block content %}
+<h1>Manage Employees</h1>
+
+
+    <form action="/admin/manageEmployee/create" method="get">
+       <input type="submit" value="Create Employee">
+    </form>
+
+    <br>
+
+    {% if reset == 1 %}
+    <h2 style="color:red">{{employeeUsername}}'s password has been set to "password"</h2>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>
+                Username
+            </th>
+
+            <th>
+                Administrator
+            </th>
+
+            <th>
+                Reset Password
+            </th>
+
+            <th>
+                (De)Activate
+            </th>
+        </tr>
+
+        {% for e in employee %}
+        <tr>
+            <td>
+                {{e.username}}
+            </td>
+
+            <td>
+                <center>
+                    {% if e.isAdmin %}
+                        Admin
+                    {% endif %}
+                </center>
+            </td>
+
+            <td>
+                <center>
+                    <form action="/admin/manageEmployee/reset" method="post">
+                        <input name="employee_key" type="text" value="{{e.key.urlsafe()}}" hidden>
+                        <input type="submit" value="Reset">
+                    </form>
+                </center>
+            </td>
+
+
+            <td>
+                <center>
+                    <form action="/admin/manageEmployee/activate" method="post">
+                        <input name="employee_key" type="text" value="{{e.key.urlsafe()}}" hidden>
+                        {% if e.isActive == True %}
+                            <input type="submit" value="Deactivate">
+                        {% elif e.isActive == False %}
+                            <input type="submit" value="Activate">
+                        {% endif %}
+                    </form>
+                </center>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

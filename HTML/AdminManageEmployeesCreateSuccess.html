@@ -1,0 +1,15 @@
+{% extends "/HTML/AdminTemplate.html" %}
+
+{% block content %}
+    <h1>
+        <center>
+             Employee, {{employee.username}}, has been successfully created
+        </center>
+    </h1>
+
+    <center>
+        <form action="/admin/manageEmployee" method="get">
+            <input type="submit" value="Return">
+        </form>
+    </center>
+{% endblock %}

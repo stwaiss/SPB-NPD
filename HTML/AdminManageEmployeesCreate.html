@@ -1,0 +1,65 @@
+{% extends "/HTML/AdminTemplate.html" %}
+
+{% block content %}
+    <h1>Create a new employee</h1>
+
+    {% if alreadyExists == 1 %}
+        <p style="color:red"><b>Userrname already exists</b></p>
+    {% endif %}
+
+    <form action="/admin/manageEmployee/create" method="post">
+        <table>
+            <tr>
+                <td>
+                    Username
+                </td>
+
+                <td>
+                    <input type="text" required="true" name="username">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Password
+                </td>
+
+                <td>
+                    <input type="text" required="true" name="password" value="password">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                    <input type="text" required="true" name="email">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    Administrator
+                </td>
+
+                <td>
+                    <center>
+                        <input type="checkbox" value="admin" name="admin">
+                    </center>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <center>
+                        <input type="submit" value="Create">
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+{% endblock %}
