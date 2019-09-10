@@ -1,25 +1,25 @@
 {% extends "/HTML/AdminTemplate.html" %}
 
 {% block content %}
+    <div id="content">
+        <center>
+            <form action="/admin/manageEmployee/create" method="get">
+                <input type="submit" value="Create Employee">
+            </form>
+        </center>
 
-    <form action="/admin/manageEmployee/create" method="get">
-        <h1>Manage Employees
-            <input type="submit" value="Create Employee">
-        </h1>
-    </form>
+        {% if reset == 1 %}
+        <h2 style="color:red">{{employeeUsername}}'s password has been set to "password"</h2>
+        {% endif %}
 
-    <br>
-
-    {% if reset == 1 %}
-    <h2 style="color:red">{{employeeUsername}}'s password has been set to "password"</h2>
-    {% endif %}
-
-
-    <div>
          <table class="ManageEmployeeTable">
              <thead>
                 <th>
                     Username
+                </th>
+
+                <th class="ManageEmployee2Col">
+                    Email
                 </th>
 
                 <th>
@@ -41,6 +41,10 @@
                     <td>
                         {{e.username}}
                     </td>
+
+                     <td class="ManageEmployee2Col">
+                         {{e.email}}
+                     </td>
 
                     <td>
                         <center>

@@ -1,14 +1,5 @@
-html{
-    height: 100%;
-}
-
 body{
-    height: 100%;
     font-family:Arial, Helvetica, Times;
-}
-
-#wrap{
-    min-height: 98%;
 }
 
 #content{
@@ -20,11 +11,13 @@ body{
 }
 
 #footer{
-    position: relative;
-	margin-top: -18px; /* negative value of footer height */
+    width:99%;
+    position: absolute;
+    bottom:9px;
 	height: 18px;
 	clear:both;
 }
+
 
 ul{
     border-radius: 12px;
@@ -49,10 +42,13 @@ li a {
 
 li a:hover {
     background-color: #80CCFF;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
 }
 
 .username{
-    background-color: #80CCFF;
+    font-weight:bold;
+    background-color: #008AE6;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -72,14 +68,22 @@ input[type=text]{
     moz-box-sizing: border-box;
 }
 
-input[type=submit]:active {
-	position:relative;
-	top:1px;
+input[type=submit]{
+    padding:8px;
+    font-family:Arial, Helvetica, Times;
+    position:relative;
+    border: 2px solid #008AE6;
+    color: white;
+    background-color: #008AE6;
+    border-radius:4px;
 }
 
-table{
-	border: 1px black solid;
-	width: 100%;
+input[type=submit]:hover {
+    border: 2px solid #80CCFF;
+    background-color: #80CCFF;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+    vertical-align: middle;
 }
 
 td,th{
@@ -87,23 +91,29 @@ td,th{
 }
 
 .ManageEmployeeTable{
-    width: 600px;
+    width: auto;
     table-layout: fixed;
     border-collapse: collapse;
 }
 
 .ManageEmployeeTable tbody{
   display:block;
-  width: 100%;
+  width: 1000px;
   overflow: auto;
-  height: 500px;
+  height: 475px;
 }
 
 .ManageEmployeeTable thead tr {
    display: block;
+   align:center;
 }
 
 .ManageEmployeeTable th, .ManageEmployeeTable td {
   text-align: left;
-  width: 200px;
+  width: 400px;
+}
+
+.ManageEmployee2Col{
+    width:600px;
+}
 

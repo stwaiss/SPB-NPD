@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Log Out Successful</title>
-    <link rel="stylesheet" type="text/css" href="/CSS/main.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Log Out Successful</title>
+        <link rel="stylesheet" type="text/css" href="/CSS/main.css">
+    </head>
 
-<body>
-    <div id="header">
-        <center>
-            <img src="/CSS/Spectrum-Brands-Logo.png" alt="SPB Logo">
-        </center>
-    </div>
-    <div id="content">
-        <center>
-            <h1>{{username}} has been successfully logged out</h1>
-            <form action="/" method="get">
-                <input type="submit" value="Home">
-            </form>
+    <body>
+        <div id="header">
+            <center>
+                <img src="/CSS/Spectrum-Brands-Logo.png" style="width:200px;height:75px;" alt="SPB logo">
+            </center>
+        </div>
+        <div id="content">
+            <center>
+                <h1>{{username}} has been successfully logged out</h1>
+                <form action="/" method="get">
+                    <input type="submit" value="Home">
+                </form>
 
-            <br>
-            <br>
+                <br>
+                <br>
 
-        </center>
-            <div id="waissandco" style="margin:75px">
-                <center>
-                    <img src="/CSS/Waiss_and_Co.jpg" alt="Waiss & Co. image">
-                    <p>
-                        <small>
-                            A Waiss & Co. solution
-                        </small>
-                    </p>
-                </center>
+                <img src="/CSS/Waiss_and_Co.jpg" alt="Waiss & Co. image">
+                <p>
+                    <small>
+                        A Waiss & Co. solution
+                    </small>
+                </p>
+            </center>
+        </div>
+
+       <footer>
+           <div id="footer">
+               <ul style="color:white">
+                  <center>
+                     <small>
+                         &copy Copyright {{curYear}} Spectrum Brands, Inc, Middleton, WI
+                     </small>
+                  </center>
+                </ul>
             </div>
-    </div>
-</body>
+        </footer>
+    </body>
+
+
 </html>
