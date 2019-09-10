@@ -93,9 +93,14 @@ class LogoutHandler(webapp2.RequestHandler):
         # delete cookie
         self.response.delete_cookie('name')
 
+        # pulls current year to put into footer for copyrights
+        dateTimeNow = datetime.datetime.now()
+        curYear = dateTimeNow.year
+
         # render successful log out template
         value = {
-            'username': name
+            'username': name,
+            'curYear': curYear
         }
 
         template = JINJA_ENVIRONMENT.get_template('HTML/Logout.html')
@@ -117,12 +122,17 @@ class ChangePasswordHandler(webapp2.RequestHandler):
             else:
                 isAdmin = 0
 
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             # display form
             values = {
                 "isAdmin": isAdmin,
                 "username": name,
                 "oldIncorrect": 0,
-                "newDontMatch": 0
+                "newDontMatch": 0,
+                "curYear": curYear
             }
             template = JINJA_ENVIRONMENT.get_template('HTML/ChangePassword.html')
             self.response.write(template.render(values))
@@ -144,6 +154,10 @@ class ChangePasswordHandler(webapp2.RequestHandler):
             else:
                 isAdmin = 0
 
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             # pull form data
             postedCurPassword = self.request.get("curPassword")
             postedNewPassword = self.request.get("newPassword")
@@ -155,7 +169,8 @@ class ChangePasswordHandler(webapp2.RequestHandler):
                     "isAdmin": isAdmin,
                     "username": name,
                     "oldIncorrect": 1,
-                    "newDontMatch": 0
+                    "newDontMatch": 0,
+                    "curYear": curYear
                 }
                 template = JINJA_ENVIRONMENT.get_template('HTML/ChangePassword.html')
                 self.response.write(template.render(values))
@@ -167,7 +182,8 @@ class ChangePasswordHandler(webapp2.RequestHandler):
                     "isAdmin": isAdmin,
                     "username": name,
                     "oldIncorrect": 0,
-                    "newDontMatch": 1
+                    "newDontMatch": 1,
+                    "curYear": curYear
                 }
                 template = JINJA_ENVIRONMENT.get_template('HTML/ChangePassword.html')
                 self.response.write(template.render(values))
@@ -180,7 +196,8 @@ class ChangePasswordHandler(webapp2.RequestHandler):
 
             values = {
                 "isAdmin": isAdmin,
-                "username": name
+                "username": name,
+                "curYear": curYear
             }
             template = JINJA_ENVIRONMENT.get_template('HTML/ChangePasswordSuccess.html')
             self.response.write(template.render(values))
@@ -198,10 +215,15 @@ class HomeHandler(webapp2.RequestHandler):
         # if cookie is correct, render page
         if len(employees) != 0:
 
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             values = {
                 'username': name,
                 'employeeUsername': name,
-                'e': employees[0]
+                'e': employees[0],
+                'curYear': curYear
             }
 
             template = JINJA_ENVIRONMENT.get_template('HTML/Home.html')
@@ -220,10 +242,15 @@ class ProjectHandler(webapp2.RequestHandler):
         # if cookie is correct, render page
         if len(employees) != 0:
 
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             values = {
                 'username': name,
                 'employeeUsername': name,
-                'e': employees[0]
+                'e': employees[0],
+                'curYear': curYear
             }
 
             template = JINJA_ENVIRONMENT.get_template('HTML/Projects.html')
@@ -231,6 +258,38 @@ class ProjectHandler(webapp2.RequestHandler):
         else:
             self.redirect('/')
             return
+
+    def post(self):
+        # check for correct cookie
+        name = self.request.cookies.get("name")
+        employees = Employee.query(Employee.username == name).fetch()
+
+        # if cookie is correct, render page
+        if len(employees) != 0:
+            # # get project key from page and turn back into project entity
+            # project_key_string = self.request.get('project_key')
+            # project_key = ndb.Key(urlsafe=project_key_string)
+            # project = project_key.get()
+            #
+
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
+            values = {
+                'username': name,
+                "e": employees[0],
+                "curYear": curYear
+                # "project": project
+            }
+
+            template = JINJA_ENVIRONMENT.get_template('HTML/ViewProject.html')
+            self.response.write(template.render(values))
+
+        else:
+            self.redirect('/')
+            return
+
 
 class AdminManageEmployeeHandler(webapp2.RequestHandler):
     def get(self):
@@ -242,11 +301,15 @@ class AdminManageEmployeeHandler(webapp2.RequestHandler):
         if len(admins) != 0:
             employees = Employee.query().order(Employee.username).fetch()
 
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             values = {
                 "username": name,
                 "employee": employees,
                 "reset": 0,
-                "employeeUsername": ""
+                "curYear": curYear
             }
             template = JINJA_ENVIRONMENT.get_template('HTML/AdminManageEmployees.html')
             self.response.write(template.render(values))
@@ -263,9 +326,15 @@ class AdminManageEmployeeCreateHandler(webapp2.RequestHandler):
 
         # if cookie is correct, render page
         if len(admins) != 0:
+
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             values = {
                 "username": name,
                 "alreadyExists": 0,
+                "curYear": curYear
             }
             template = JINJA_ENVIRONMENT.get_template('HTML/AdminManageEmployeesCreate.html')
             self.response.write(template.render(values))
@@ -280,6 +349,10 @@ class AdminManageEmployeeCreateHandler(webapp2.RequestHandler):
 
         # if cookie is correct, render page
         if len(admins) != 0:
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             # pull form data
             postedUsername = self.request.get('username')
             postedPassword = self.request.get('password')
@@ -298,6 +371,7 @@ class AdminManageEmployeeCreateHandler(webapp2.RequestHandler):
                 values = {
                     "username": name,
                     "alreadyExists": 1,
+                    "curYear": curYear
                 }
                 template = JINJA_ENVIRONMENT.get_template('HTML/AdminManageEmployeesCreate.html')
                 self.response.write(template.render(values))
@@ -309,7 +383,8 @@ class AdminManageEmployeeCreateHandler(webapp2.RequestHandler):
 
             values = {
                 "username": name,
-                "employee": newEmployee
+                "employee": newEmployee,
+                "curYear": curYear
             }
 
             template = JINJA_ENVIRONMENT.get_template('HTML/AdminManageEmployeesCreateSuccess.html')
@@ -328,6 +403,10 @@ class AdminManageEmployeeActivateHandler(webapp2.RequestHandler):
 
         # if cookie is correct, render page
         if len(admins) != 0:
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             # get employee key from page and turn back into employee entity
             employee_key_string = self.request.get('employee_key')
             employee_key = ndb.Key(urlsafe=employee_key_string)
@@ -346,7 +425,8 @@ class AdminManageEmployeeActivateHandler(webapp2.RequestHandler):
 
             values = {
                 "username": name,
-                "employee": employees
+                "employee": employees,
+                "curYear": curYear
             }
             template = JINJA_ENVIRONMENT.get_template('HTML/AdminManageEmployees.html')
             self.response.write(template.render(values))
@@ -363,6 +443,10 @@ class AdminManageEmployeeResetHandler(webapp2.RequestHandler):
 
         # if cookie is correct, render page
         if len(admins) != 0:
+            # pulls current year to put into footer for copyrights
+            dateTimeNow = datetime.datetime.now()
+            curYear = dateTimeNow.year
+
             # get employee key from page and turn back into employee entity
             employee_key_string = self.request.get('employee_key')
             employee_key = ndb.Key(urlsafe=employee_key_string)
@@ -379,7 +463,8 @@ class AdminManageEmployeeResetHandler(webapp2.RequestHandler):
                 "username": name,
                 "employee": employees,
                 "reset": 1,
-                "employeeUsername": employee.username
+                "employeeUsername": employee.username,
+                "curYear": curYear
             }
             template = JINJA_ENVIRONMENT.get_template('HTML/AdminManageEmployees.html')
             self.response.write(template.render(values))

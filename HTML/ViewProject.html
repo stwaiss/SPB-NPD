@@ -1,0 +1,116 @@
+{% if e.isAdmin %}
+    {% extends "/HTML/AdminTemplate.html" %}
+{% else %}
+    {% extends "/HTML/StaffTemplate.html" %}
+{% endif %}
+
+
+{% block content %}
+    </center>
+<div>
+    <center>
+            <table style="width:1000px">
+                <tr>
+                    <th colspan="5">
+                        Project Information
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Project Number: 24274
+                    </td>
+                    <td>
+                        Project Name: Heritage MB
+                    </td>
+                    <td>
+                        Project Coordinator: Thomas Franklin
+                    </td>
+                    <td>
+                        Type Number: 1
+                    </td>
+                    <td>
+                        Gate Number: 1
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        ExFty: 2020/04/27
+                    </td>
+                    <td>
+                        Next Gate Due: 2020/01/01
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+
+            <table>
+                <tr>
+                    <th>
+                        Gate 1 - Project Proposal
+                    </th>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+
+            <br>
+
+            <table>
+                <tr>
+                    <th>
+                        Gate 2 - Project Confirmation
+                    </th>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+
+            <br>
+
+            <table>
+                <tr>
+                    <th>
+                        Gate 3 - Business Proposal
+                    </th>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+
+            <br>
+
+            <table>
+                <tr>
+                    <th>
+                        Gate 4 - Limited Production
+                    </th>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+
+            <br>
+
+            <table>
+                <tr>
+                    <th>
+                        Gate 5 - Final Release
+                    </th>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+</div>
+
+{% endblock %}
