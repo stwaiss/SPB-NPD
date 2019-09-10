@@ -1,4 +1,9 @@
-{% extends "/HTML/AdminTemplate.html" %}
+{% if e.isAdmin %}
+    {% extends "/HTML/AdminTemplate.html" %}
+{% else %}
+    {% extends "/HTML/StaffTemplate.html" %}
+{% endif %}
+
 
 {% block content %}
 

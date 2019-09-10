@@ -1,0 +1,192 @@
+{% if e.isAdmin %}
+    {% extends "/HTML/AdminTemplate.html" %}
+{% else %}
+    {% extends "/HTML/StaffTemplate.html" %}
+{% endif %}
+
+{% block content %}
+
+
+<!--Project Search Table-->
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>
+                <label>Brand:</label>
+            </td>
+            <td>
+                <select name="brand">
+                    <option value=""></option>
+                    <option value="Black and Decker">Black and Decker</option>
+                    <option value="George Foreman">George Foreman</option>
+                    <option value="Remington">Remington</option>
+                    <option value="Russell Hobbes">Russell Hobbes</option>
+                </select>
+            </td>
+
+            <td>
+                <label>Category:</label>
+            </td>
+            <td>
+                <select name="category">
+                    <option value=""></option>
+                    <option value="Beverage">Beverage</option>
+                    <option value="Cooking">Cooking</option>
+                    <option value="Food Prep">Food Prep</option>
+                    <option value="Garment Care">Garment Care</option>
+                    <option value="Grills">Grills</option>
+                    <option value="Grooming">Grooming</option>
+                    <option value="Hair Care">Hair Care</option>
+                    <option value="Shave">Shave</option>
+                </select>
+            </td>
+
+            <td>
+                <label>Region</label>
+            </td>
+            <td>
+                <select name="region">
+                    <option value=""></option>
+                    <option value="Asia">Asia</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Lat Am">Lat Am</option>
+                    <option value="N America">N America</option>
+                </select>
+            </td>
+
+            <td>
+                <label>Gate #</label>
+            </td>
+            <td>
+                <select name="gateNo">
+                    <option value=""></option>
+                    <option value="gate1">Gate 1 - PP</option>
+                    <option value="gate1">Gate 2 - PC</option>
+                    <option value="gate1">Gate 3 - BP </option>
+                    <option value="gate1">Gate 4 - LP</option>
+                    <option value="gate1">Gate 5 - FR</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Type #</label>
+            </td>
+            <td>
+                <select name="typeNo">
+                    <option value=""></option>
+                    <option value="type1">Type 1</option>
+                    <option value="type2">Type 2</option>
+                    <option value="type3">Type 3</option>
+                    <option value="type4">Type 4</option>
+
+
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2" align="center">
+                <input type="submit" value="Search">
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</form>
+
+<br>
+
+
+<!--Project List-->
+<form action="" method="post">
+    <table>
+        <thead>
+            <td>
+                Gate
+            </td>
+            <td>
+                Ex Fty Date
+            </td>
+            <td>
+                Project #
+            </td>
+            <td>
+                Category
+            </td>
+            <td>
+                Project Name
+            </td>
+            <td>
+                Project Coordinator
+            </td>
+            <td>
+                View
+            </td>
+        </thead>
+
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                2020/04/27
+            </td>
+            <td>
+                24274
+            </td>
+            <td>
+                Grooming
+            </td>
+            <td>
+                Heritage MB
+            </td>
+            <td>
+                Thomas Franklin
+            </td>
+            <td>
+                <input type="submit" value="View">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                2020/05/16
+            </td>
+            <td>
+                24273
+            </td>
+            <td>
+                Food Prep
+            </td>
+            <td>
+                Vacuum Blender
+            </td>
+            <td>
+                Zeina McMillan
+            </td>
+            <td>
+                <input type="submit" value="View">
+            </td>
+        </tr>
+
+
+    </table>
+</form>
+
+
+
+
+
+
+
+{% endblock %}

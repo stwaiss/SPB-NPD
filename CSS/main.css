@@ -85,3 +85,25 @@ table{
 td,th{
     padding:10px;
 }
+
+.ManageEmployeeTable{
+    width: 600px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.ManageEmployeeTable tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 500px;
+}
+
+.ManageEmployeeTable thead tr {
+   display: block;
+}
+
+.ManageEmployeeTable th, .ManageEmployeeTable td {
+  text-align: left;
+  width: 200px;
+

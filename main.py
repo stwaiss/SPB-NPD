@@ -199,8 +199,9 @@ class HomeHandler(webapp2.RequestHandler):
         if len(employees) != 0:
 
             values = {
-                'username':name,
-                'employeeUsername':name
+                'username': name,
+                'employeeUsername': name,
+                'e': employees[0]
             }
 
             template = JINJA_ENVIRONMENT.get_template('HTML/Home.html')
@@ -209,6 +210,27 @@ class HomeHandler(webapp2.RequestHandler):
             self.redirect('/')
             return
 
+
+class ProjectHandler(webapp2.RequestHandler):
+    def get(self):
+        # check for correct cookie
+        name = self.request.cookies.get("name")
+        employees = Employee.query(Employee.username == name).fetch()
+
+        # if cookie is correct, render page
+        if len(employees) != 0:
+
+            values = {
+                'username': name,
+                'employeeUsername': name,
+                'e': employees[0]
+            }
+
+            template = JINJA_ENVIRONMENT.get_template('HTML/Projects.html')
+            self.response.write(template.render(values))
+        else:
+            self.redirect('/')
+            return
 
 class AdminManageEmployeeHandler(webapp2.RequestHandler):
     def get(self):
@@ -320,7 +342,7 @@ class AdminManageEmployeeActivateHandler(webapp2.RequestHandler):
 
             employee.put()
 
-            employees = Employee.query().order(Employee.isAdmin,Employee.username).fetch()
+            employees = Employee.query().order(Employee.username).fetch()
 
             values = {
                 "username": name,
@@ -373,6 +395,7 @@ app = webapp2.WSGIApplication([
     ('/logout', LogoutHandler),
     ('/changePassword', ChangePasswordHandler),
     ('/home', HomeHandler),
+    ('/projects', ProjectHandler),
     ('/admin/manageEmployee', AdminManageEmployeeHandler),
     ('/admin/manageEmployee/create', AdminManageEmployeeCreateHandler),
     ('/admin/manageEmployee/activate', AdminManageEmployeeActivateHandler),
