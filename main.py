@@ -473,7 +473,6 @@ class AdminManageEmployeeResetHandler(webapp2.RequestHandler):
             return
 
 
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/login', LoginHandler),
