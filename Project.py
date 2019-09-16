@@ -1,7 +1,7 @@
 from google.appengine.ext import ndb
 
 class Project(ndb.Model):
-    projectNumber = ndb.StringProperty(required=True)
+    projectNumber = ndb.IntegerProperty(required=True)
     projectName = ndb.StringProperty(required=True)
     projectBrand = ndb.StringProperty(required=True)
     projectCategory = ndb.StringProperty(required=True)

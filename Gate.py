@@ -1,8 +1,9 @@
 from google.appengine.ext import ndb
 
-class Project(ndb.Model):
+
+class Gate(ndb.Model):
+    projectKey = ndb.KeyProperty(required=True)
     gateID = ndb.IntegerProperty()
     dateCreated = ndb.DateTimeProperty(required=True)
-    dateExpectedCompletion = ndb.DateTimeProperty()
-    dateActualCompletion = ndb.DateTimeProperty()
-    gateArray = ndb.KeyProperty(repeated=True)
+    dateExpectedCompleted = ndb.DateTimeProperty()
+    dateActualCompleted = ndb.DateTimeProperty()
